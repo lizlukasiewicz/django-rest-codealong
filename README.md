@@ -18,7 +18,7 @@ both use similar VALIDATION FLAGS on fields such as::
                    title = serializers.CharField(required=False, default='friendly', max_length=100)
  ```
  
-📟 IN Terminal📟: 
+📟   IN TERMINAL  📟 <<<
 ```python
 python manage.py shell   🪬 exit()
 
@@ -97,3 +97,24 @@ SERIALIZER.data
 ---
 ---
 # Tutorial 2: Requests and Responses
+## ---- Request objects ----
+
+`Request` object extends regular `HttpRequest` with more flexible parsing with `request.data` attribute, which is similar to `request.POST` but more useful for working with Web APIs
+
+```python
+request.POST # only handles form data, only works for `POST` method
+
+request.data # handles arbitrary data, works for `POST`, `PUT`, `PATCH` methods 
+```
+
+## ---- Response objects ----
+
+`Response` object is a type of `TemplateResponse` 
+that takes unrendered content and uses content negotiation to determine the correct content type to return to the client.
+
+```python
+return Response(data) # Renders to content type as requested by the client
+```
+## ---- Status Codes ----
+
+## ---- Wrapping API views ----
