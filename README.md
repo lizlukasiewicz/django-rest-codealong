@@ -27,7 +27,7 @@ python manage.py shell   🪬 exit()
 >>from rest_framework.parsers import JSONParser
 ```
 
-
+---
 ###                🩻 SERIALIZING DATA 🩻
 
 #### 1️⃣ CODE SNIPPETS::
@@ -44,8 +44,7 @@ SERIALIZER = SnippetSerializer(SNIPPET)
 
 SERIALIZER.data 
 ```
-
-            {'id': 2, 'title': '', 'code': 'print("hello, world")\n', 'linenos': False, 'language': 'python', 'style': 'friendly'}
+>{'id': 2, 'title': '', 'code': 'print("hello, world")\n', 'linenos': False, 'language': 'python', 'style': 'friendly'}
 
 #### 3️⃣ RENDER INTO JSON:: (finalize serialization proccess)
 ```python
@@ -54,10 +53,9 @@ content = JSONRenderer().render(SERIALIZER.data)
 
 content 
 ```
-            
-            b'{"id": 2, "title": "", "code": "print(\\"hello, world\\")\\n", "linenos": false, "language": "python", "style": "friendly"}'
+>b'{"id": 2, "title": "", "code": "print(\\"hello, world\\")\\n", "linenos": false, "language": "python", "style": "friendly"}'
 
-
+---
 ###              🩻  DESERIALIZING DATA 🩻
 
 #### 1️⃣ PARSE STREAM INTO PYTHON NATIVE DATATYPES::
@@ -78,11 +76,11 @@ SERIALIZER.is_valid()
 ```python                 
 SERIALIZER.validated_data
 ```
-       OrderedDict([('title', ''), ('code', 'print("hello, world")\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])
+>OrderedDict([('title', ''), ('code', 'print("hello, world")\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])
 ```python
 SERIALIZER.save()
 ```
-       <Snippet: Snippet object>
+> <Snippet: Snippet object>
 
 ###      SERIALIZE QUERYSETS INSTEAD OF MODEL INSTANCES       ⬇️ ⬇️
 ```python
@@ -90,5 +88,4 @@ SERIALIZER = SnippetSerializer(Snippet.objects.all(), many=True)
 
 SERIALIZER.data
 ```
-
-      [OrderedDict([('id', 1), ('title', ''), ('code', 'foo = "bar"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 2), ('title', ''), ('code', 'print("hello, world")\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 3), ('title', ''), ('code', 'print("hello, world")'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])]
+>[OrderedDict([('id', 1), ('title', ''), ('code', 'foo = "bar"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 2), ('title', ''), ('code', 'print("hello, world")\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 3), ('title', ''), ('code', 'print("hello, world")'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])]
