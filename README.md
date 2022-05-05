@@ -1,6 +1,7 @@
 # DJANGO REST_FRAMEWORK
 URL::  https://www.django-rest-framework.org
 
+# Tutorial 1: Serialization
    ## ----------------------🍄  WORKING WITH SERIALIZERS  🍄------------------
 SERIALIZER class is similar to a Django FORM class 
 
@@ -89,3 +90,5 @@ SERIALIZER = SnippetSerializer(Snippet.objects.all(), many=True)
 SERIALIZER.data
 ```
 >[OrderedDict([('id', 1), ('title', ''), ('code', 'foo = "bar"\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 2), ('title', ''), ('code', 'print("hello, world")\n'), ('linenos', False), ('language', 'python'), ('style', 'friendly')]), OrderedDict([('id', 3), ('title', ''), ('code', 'print("hello, world")'), ('linenos', False), ('language', 'python'), ('style', 'friendly')])]
+
+# Tutorial 2: Requests and Responses
